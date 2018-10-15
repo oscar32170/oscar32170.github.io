@@ -7,7 +7,6 @@
     background-color: dimgray;
     list-style-type: none;
     overflow: auto;
-    
 }
 
 .nav li {
@@ -29,8 +28,8 @@
 }
 
 #nav_title {
+    display: block;
     padding: 0.5em;
-    font-size: 1.5em; 
 }
 
 h2, h3 {
