@@ -52,6 +52,7 @@ h3 {
     padding: 1.5em;
     text-decoration: none;
     color: black;
+    font-size: 1.25em;
 }
 
 #select_location a:hover{
