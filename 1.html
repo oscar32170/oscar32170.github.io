@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>HKUST Next Shuttle</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body onload="showTwoSchedules(12,13)">
+    <ul class="nav">
+            <li><a id="back_button" href="index.html"><</a></li>
+            <li id="nav_title">HKUST Next Shuttle</li>
+            <li id="refresh_button"><a href="javascript: showTwoSchedules(12,13)">Refresh</a></li>
+     </ul>        
+     
+    <table class="last_update_class">
+        <tr>
+            <th>Last Update: </th>
+            <td id="last_update"> </td>
+        </tr>
+    </table>
+
+    <h3 id="t1_od_text"></h3>
+    <table id="t1">
+        <tr>
+            <th class="leftCol">Destination</th>
+            <th class="rightCol">Depart at</th>
+        </tr>
+        <tr id="t1_s1">
+            <td id="t1_s1_des"></td>
+            <td id="t1_s1_time"></td>
+        </tr>
+        <tr id="t1_s2">
+                <td id="t1_s2_des"></td>
+                <td id="t1_s2_time"></td>
+        </tr>
+        <tr id="t1_s3">
+                <td id="t1_s3_des"></td>
+                <td id="t1_s3_time"></td>
+        </tr>
+        <tr id="t1_s4">
+                <td id="t1_s4_des"></td>
+                <td id="t1_s4_time"></td>
+        </tr>
+    </table>
+
+    <h3 id="t2_od_text"></h3>
+    <table id="t2">
+            <tr>
+                <th class="leftCol">Destination</th>
+                <th class="rightCol">Depart at</th>
+            </tr>
+            <tr id="t2_s1">
+                <td id="t2_s1_des"></td>
+                <td id="t2_s1_time"></td>
+            </tr>
+            <tr id="t2_s2">
+                    <td id="t2_s2_des"></td>
+                    <td id="t2_s2_time"></td>
+            </tr>
+            <tr id="t2_s3">
+                    <td id="t2_s3_des"></td>
+                    <td id="t2_s3_time"></td>
+            </tr>
+            <tr id="t2_s4">
+                    <td id="t2_s4_des"></td>
+                    <td id="t2_s4_time"></td>
+            </tr>
+        </table>
+</body>
+</html>
