@@ -24,6 +24,10 @@
     color: white;
 }
 
+#nav_title {
+    padding: 0.1em;
+}
+
 #refresh_button {
     float: right;
 }
