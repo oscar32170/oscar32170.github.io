@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Now News - 332</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <div id="meta_container"></div>
+    <script>
+        $.post("https://api.viu.now.com/p8/1/getLiveURL", 
+        '{"channelno":"099","deviceId":"0000anonymous_user","format":"HLS"}', 
+        function(data){
+            $("#meta_container").empty().append('<meta http-equiv="Refresh" content="0;url=' + data.asset.hls.adaptive[0] + '">');
+        }, "json");
+    </script>
+</body>
+</html>
