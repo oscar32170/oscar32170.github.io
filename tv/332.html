@@ -10,7 +10,7 @@
         $.post("https://hkt-mobile-api.nowtv.now.com/09/1/getLiveURL", 
         '{"channelno":"332","format":"HLS"}', 
         function(data){
-            $("#meta_container").empty().append('<meta http-equiv="Refresh" content="0;url=' + data.asset.hls.adaptive[0] + '">');
+            $("#meta_container").empty().append('<meta http-equiv="Refresh" content="0;url=' + data.asset.hls.adaptive[0].replace('http://', 'https://') + '">');
         }, "json");
     </script>
 </body>
