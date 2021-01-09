@@ -10,10 +10,10 @@
   <body>
     <br>
     <div class="container">
-        <form action="https://wa.me/" method="post">
+        <form action="https://api.whatsapp.com/send" method="get">
             <div class="mb-3">
                 <label class="form-label">Phone number in international format: </label>
-                <input class="form-control" type="tel" pattern="^[0-9]{5,30}$" placeholder="440123456789" title="Phone Number" required>
+                <input class="form-control" type="tel" name="phone" pattern="^[0-9]{5,30}$" placeholder="440123456789" title="Phone Number" required>
                 <div class="form-text">Omit any zeroes, brackets, or dashes when adding the phone number in international format.</div>
             </div>
             <input class="btn btn-primary" type="submit" value="Send WhatsApp Message">
