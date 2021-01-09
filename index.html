@@ -1,20 +1,25 @@
-<html>
-<head>
-    <title>HKUST Next Shuttle</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-</head>
-<body>
-    <ul class="nav">
-            <li id="nav_title"><a>HKUST Next Shuttle</a></li>
-    </ul>
-    <div id="select_location">
-        <h2>Select departing location:</h2>
-        <a href="1.html">HKUST <br>(to Tseung Kwan O and Diamond Hill)</a>
-        <a href="2.html">Tseung Kwan O <br>(to HKUST)</a>
-        <a href="3.html">Diamond Hill <br>(to HKUST)</a>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>WhatsApp without Saving Phone Number</title>
+  </head>
+  <body>
+    <br>
+    <div class="container">
+        <form action="https://api.whatsapp.com/send" method="post">
+            <div class="mb-3">
+                <label class="form-label">Phone number in international format: </label>
+                <input class="form-control" type="tel" name="phone" pattern="^[0-9]{5,30}$" placeholder="123456789" title="Phone Number" required>
+                <div class="form-text">Omit any zeroes, brackets, or dashes when adding the phone number in international format.</div>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Send WhatsApp Message">
+        </form>
+
     </div>
 
-</body>
+  </body>
 </html>
