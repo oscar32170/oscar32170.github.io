@@ -13,6 +13,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Iconify font icon -->
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
     <title>WhatsAnyone - WhatsApp without Saving Phone Number</title>
   </head>
   <body>
@@ -28,8 +31,13 @@
         </form>
     </div>
 
-    <div id="popup" hidden>
-        123
+    <div id="popup" class="fixed-bottom alert alert-primary" hidden>
+        <h4 class="alert-heading">Install the app on your homescreen</h4>
+        <p>
+            Tap 
+            <span class="iconify" data-icon="gridicons-share-ios"></span>
+             and the "Add to Home Screen"
+        </p>
     </div>
 
     <script>
