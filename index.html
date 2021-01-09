@@ -18,27 +18,28 @@
   <body>
     <br>
     <div class="container">
-        <form action="#" onsubmit="redirectWhatsApp()">
+        <form id="main_form" action="#">
             <div class="mb-3">
                 <label class="form-label">Phone number in international format: </label>
                 <input class="form-control" type="tel" id="phone_input" onkeyup="stoppedTyping()" pattern="^[0-9]{5,30}$" placeholder="440123456789" title="Phone Number" required>
                 <div class="form-text">Omit any zeroes, brackets, or dashes when adding the phone number in international format.</div>
             </div>
-            <input class="btn btn-primary" type="submit" id="send_button" value="Send WhatsApp Message" disabled>
+            <button class="btn btn-primary" type="submit" id="send_button" disabled>Send WhatsApp Message</a>
         </form>
     </div>
 
     <script>
+        var send_button = document.getElementById('send_button');
+        var main_form = document.getElementById('main_form');
         function stoppedTyping(){
-            if(this.value != '') { 
-                document.getElementById('send_button').disabled = false; 
+            if(this.value != "") { 
+                send_button.disabled = false;
+
+                var phone = document.getElementById("phone_input").value;
+                main_form.setAttribute("action", "https://wa.me/" + phone);
             } else { 
-                document.getElementById('send_button').disabled = true;
+                send_button.disabled = true;
             }
-        }
-        function redirectWhatsApp() {
-            var phone = document.getElementById("phone_input").value;
-            window.location.href="https://wa.me/" + phone;
         }
 
     </script>
