@@ -20,14 +20,14 @@
   </head>
   <body>
     <div class="container">
-        <h1>WhatsAnyone</h1>
+        <h1 class="my-2">WhatsAnyone</h1>
         <form id="main_form" action="#">
             <div class="mb-3">
-                <label class="form-label">Phone number in international format: </label>
-                <input class="form-control" type="tel" id="phone_input" onkeyup="stoppedTyping()" pattern="^[0-9]{5,30}$" placeholder="440123456789" title="Phone Number" required>
+                <label class="form-label">Phone number (in international format): </label>
+                <input class="form-control" type="tel" id="phone_input" onkeyup="stoppedTyping()" pattern="^[0-9]{5,30}$" placeholder="4401234567899" title="Phone Number" required autofocus>
                 <div class="form-text">Omit any zeroes, brackets, or dashes when adding the phone number in international format.</div>
             </div>
-            <button class="btn btn-primary" type="submit" id="send_button" disabled>Send WhatsApp Message</a>
+            <button class="btn btn-primary" type="submit" id="send_button">Send WhatsApp Message</a>
         </form>
     </div>
 
@@ -43,14 +43,9 @@
         var send_button = document.getElementById('send_button');
         var main_form = document.getElementById('main_form');
         function stoppedTyping(){
-            if(this.value != "") { 
-                send_button.disabled = false;
-
-                var phone = document.getElementById("phone_input").value;
-                main_form.setAttribute("action", "https://wa.me/" + phone);
-            } else { 
-                send_button.disabled = true;
-            }
+            var phone = document.getElementById("phone_input").value;
+            main_form.setAttribute("action", "https://wa.me/" + phone);
+            
         }
 
         // Detects if device is on iOS 
