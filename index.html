@@ -23,7 +23,7 @@
         <h1 class="my-2">WhatsAnyone</h1>
         <form id="main_form" action="#">
             <div class="mb-3">
-                <label class="form-label">Phone number (in international format): </label>
+                <label class="form-label">Phone number in international format: </label>
                 <input class="form-control" type="tel" id="phone_input" onkeyup="stoppedTyping()" pattern="^[0-9]{5,30}$" placeholder="4401234567899" title="Phone Number" required autofocus>
                 <div class="form-text">Omit any zeroes, brackets, or dashes when adding the phone number in international format.</div>
             </div>
@@ -31,7 +31,7 @@
         </form>
     </div>
 
-    <div id="popup" class="fixed-bottom alert alert-primary mx-3" hidden>
+    <div id="popup" class="fixed-bottom alert alert-info mx-3" hidden>
         <h4 class="alert-heading">Install the App on Home Screen</h4>
         <p>
             Tap <span class="iconify" data-icon="gridicons-share-ios"></span> and select "Add to Home Screen"
