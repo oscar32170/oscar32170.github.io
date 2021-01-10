@@ -16,29 +16,30 @@
     <!-- Iconify font icon -->
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
-    <title>WhatsAnyone - WhatsApp without Saving Phone Number</title>
+    <title>WhatsAnyone - WhatsApp without Saving the Phone Number</title>
   </head>
   <body>
-    <div class="container text-center">
-        <div class="align-middle">
+    <div class="container">
+        <div class="text-center">
             <h1 class="my-2">WhatsAnyone</h1>
-            <h4 class="my-2">WhatsApp without saving the phone number</h3>
             <form id="main_form" action="#">
                 <div class="mb-3">
+                    <label class="form-label">WhatsApp without saving the phone number</label>
                     <input class="form-control" type="tel" id="phone_input" onkeyup="stoppedTyping()" pattern="^[0-9]{5,30}$" placeholder="Phone number in international format" title="Phone Number" required autofocus>
                     <div class="form-text">Omit any zeroes, brackets, or dashes when adding the phone number in international format.</div>
                 </div>
-                <button class="btn btn-primary" type="submit" id="send_button">Send WhatsApp Message</a>
+                <button class="btn btn-primary" type="submit" id="send_button">Send WhatsApp Message</button>
             </form>
         </div>
+
     </div>
 
     <div id="popup" class="fixed-bottom alert alert-info mx-3" hidden>
-        <h4 class="alert-heading">Install the App on Home Screen</h4>
+        <h4 class="alert-heading">Add WhatsAnyone to Home Screen</h4>
         <p>
             Tap <span class="iconify" data-icon="gridicons-share-ios"></span> and select "Add to Home Screen"
         </p>
-        <div style="text-align: center">&#9660;</div>
+        <div class="text-center">&#9660;</div>
     </div>
 
     <script>
