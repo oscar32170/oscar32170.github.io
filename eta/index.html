@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Estimated time of arrival</h2>
+From Tung Chung:</br>
+<table>
+    <tr>
+        <td>S52:</td>
+        <td id="s52-tc"></td>
+    </tr>
+    <tr>
+        <td>S64:</td>
+        <td id="s64-tc"></td>
+    </tr>
+    <tr>
+        <td>S64C:</td>
+        <td id="s64c-tc"></td>
+    </tr>
+</table>
+</br>
+
+From CX City:</br>
+<table>
+    <tr>
+        <td>S52:</td>
+        <td id="s52-cx"></td>
+    </tr>
+    <tr>
+        <td>S64:</td>
+        <td id="s64-cx"></td>
+    </tr>
+</table>
+
+
+
+<script>
+getETA("https://rt.data.gov.hk/v1/transport/citybus-nwfb/eta/ctb/001860/S52", "s52-tc");
+getETA("https://data.etabus.gov.hk/v1/transport/kmb/eta/86FD7EFBB651F5CE/S64/1", "s64-tc");
+getETA("https://data.etabus.gov.hk/v1/transport/kmb/eta/86FD7EFBB651F5CE/S64C/1", "s64c-tc");
+
+getETA("https://rt.data.gov.hk/v1/transport/citybus-nwfb/eta/ctb/001844/S52", "s52-cx");
+getETA("https://data.etabus.gov.hk/v1/transport/kmb/eta/18CA599721E67265/S64/1", "s64-cx");
+
+async function getETA(url, element) {
+    let response = await fetch(url);
+    let jsonText = await response.text();
+    const etaData = JSON.parse(jsonText);
+    
+    const earliestETA = new Date(etaData.data[0].eta);
+    document.getElementById(element).innerHTML = earliestETA.toLocaleTimeString();
+}
+
+</script>
+
+</body>
+</html>
