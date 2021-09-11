@@ -69,12 +69,15 @@ const routeInfoJson = `
 
 `;
 
+
+
 var activeTab = "tab-one-content";
 renderETATables();
 
 function reloadETA() {
     clearETA();
     renderETATables();
+    document.getElementById("refresh-btn").blur();
 }
 
 function clearETA() {
