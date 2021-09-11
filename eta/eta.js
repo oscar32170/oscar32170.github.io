@@ -124,13 +124,15 @@ function renderETATables() {
     
     var tabInfo = JSON.parse(routeInfoJson).tabs; // list of objs
     
+    let htmlSegment = "";
+
     tabInfo.forEach(tab => {
         var element = tab.id;
         if (activeTab != element) {
             return;
         }
 
-        let htmlSegment = "";
+        
         tab.groups.forEach(group => {
             var eta = [];
 
@@ -161,8 +163,29 @@ function renderETATables() {
             </table>
             </br>`
             console.log(element);
-            document.getElementById(element).innerHTML = htmlSegment;
+            
         })
-        
+        const d = new Date();
+        htmlSegment += "Last update: " + d.toLocaleString();
+        document.getElementById(element).innerHTML = htmlSegment;
     })
+}
+
+
+// Popup for "Install to Home Screen"
+// Detects if device is on iOS 
+const isIos = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test( userAgent );
+    }
+    // Detects if device is in standalone mode
+    const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+
+    // Checks if should display install popup notification:
+    if (isIos() && !isInStandaloneMode()) {
+        document.getElementById("popup").hidden = false;
+    }
+
+function closePopup() {
+    document.getElementById("popup").hidden = true;
 }
