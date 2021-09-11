@@ -1,71 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-        <!-- Bootstrap -->
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-     -->
-        <title>Estimated time of arrival</title>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Estimated time of arrival</title>
+</head>
+
 <body>
-<h2>Estimated time of arrival</h2>
-From Tung Chung:</br>
-<table>
-    <tr>
-        <td>S52:</td>
-        <td id="s52-tc"></td>
-    </tr>
-    <tr>
-        <td>S64:</td>
-        <td id="s64-tc"></td>
-    </tr>
-    <tr>
-        <td>S64C:</td>
-        <td id="s64c-tc"></td>
-    </tr>
-</table>
-</br>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">ETA To / From Cathay City</a>
+        <button type="button" class="btn btn-outline-dark" onclick="reloadETA()">
+            <span>&#x21bb;</span>
+        </button>
+        </div>
+    </nav>
+    <div class="container" id="display">
+        <ul class="nav nav-tabs" id="etaTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tab-one" data-bs-toggle="tab" data-bs-target="#tab-one-content" type="button" role="tab" aria-controls="tab-one-content" aria-selected="true" onclick="changeActiveTab('tab-one-content')">Tung Chung</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-two" data-bs-toggle="tab" data-bs-target="#tab-two-content" type="button" role="tab" aria-controls="tab-two-content" aria-selected="false" onclick="changeActiveTab('tab-two-content')">HK Island</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-three" data-bs-toggle="tab" data-bs-target="#tab-three-content" type="button" role="tab" aria-controls="tab-three-content" aria-selected="false" onclick="changeActiveTab('tab-three-content')">Jordan</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="tab-one-content" role="tabpanel" aria-labelledby="home-tab">
+            </div>
+            <div class="tab-pane fade" id="tab-two-content" role="tabpanel" aria-labelledby="tab-two">...</div>
+            <div class="tab-pane fade" id="tab-three-content" role="tabpanel" aria-labelledby="tab-three">...</div>
+        </div>
 
-From CX City:</br>
-<table>
-    <tr>
-        <td>S52:</td>
-        <td id="s52-cx"></td>
-    </tr>
-    <tr>
-        <td>S64:</td>
-        <td id="s64-cx"></td>
-    </tr>
-</table>
-
+      </div>
 
 
-<script>
-getETA("https://rt.data.gov.hk/v1/transport/citybus-nwfb/eta/ctb/001860/S52", "O", "s52-tc");
-getETA("https://data.etabus.gov.hk/v1/transport/kmb/eta/86FD7EFBB651F5CE/S64/1", "O", "s64-tc");
-getETA("https://data.etabus.gov.hk/v1/transport/kmb/eta/86FD7EFBB651F5CE/S64C/1", "O", "s64c-tc");
 
-getETA("https://rt.data.gov.hk/v1/transport/citybus-nwfb/eta/ctb/001844/S52", "I", "s52-cx");
-getETA("https://data.etabus.gov.hk/v1/transport/kmb/eta/18CA599721E67265/S64/1", "O", "s64-cx");
+<script src="eta.js"></script>
 
-async function getETA(url, dir, element) {
-    let response = await fetch(url);
-    let jsonText = await response.text();
-    const etaData = JSON.parse(jsonText);
-    let etaListLen = etaData.data.length;
-    for(var i = 0; i < etaListLen; i++) {
-        if (etaData.data[i].dir == dir) {
-            const earliestETA = new Date(etaData.data[i].eta);
-            document.getElementById(element).innerHTML = earliestETA.toLocaleTimeString();
-            break;
-        }
-    }
-}
-
-</script>
-
+<!-- Boostrap JS-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
 </body>
 </html>
