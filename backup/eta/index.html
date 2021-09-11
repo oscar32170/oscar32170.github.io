@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     
     <!-- iOS PWA metadata -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -13,11 +13,14 @@
     <!-- Bootstrap CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     
+    <!-- Iconify font icon -->
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
     <title>Estimated time of arrival</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
         <a class="navbar-brand" href="#">ETA To / From Cathay City</a>
         <button id="refresh-btn" type="button" class="navbar-toggler" onclick="reloadETA()">
@@ -42,6 +45,17 @@
             </div>
             <div class="tab-pane fade" id="tab-two-content" role="tabpanel" aria-labelledby="tab-two">...</div>
             <div class="tab-pane fade" id="tab-three-content" role="tabpanel" aria-labelledby="tab-three">...</div>
+        </div>
+
+        
+        <!-- PWA popup-->
+        <div id="popup" class="fixed-bottom alert alert-primary mb-0" hidden>
+            <button style="position: absolute; top: 0; right:0;" type="button" class="btn-close" aria-label="Close" onclick="closePopup();"></button>
+            <h5 class="alert-heading">Add Cathy City ETA to Home Screen</h5>
+            <p>
+                Tap <span class="iconify" data-icon="gridicons-share-ios"></span> and select "Add to Home Screen"
+            </p>
+            <div class="text-center">&#9660;</div>
         </div>
     </div>
 
