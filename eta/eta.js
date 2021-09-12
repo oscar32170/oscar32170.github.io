@@ -45,6 +45,10 @@ const routeInfoJson = `
                         {
                             "url": "https://rt.data.gov.hk/v1/transport/citybus-nwfb/eta/ctb/001845/E11",
                             "dir": "I"
+                        },
+                        {
+                            "url": "https://rt.data.gov.hk/v1/transport/citybus-nwfb/eta/ctb/001845/E11A",
+                            "dir": "I"
                         }
                     ]
                 }
@@ -59,6 +63,10 @@ const routeInfoJson = `
                         {
                             "url": "https://rt.data.gov.hk/v1/transport/citybus-nwfb/eta/ctb/001845/E23",
                             "dir": "I"
+                        },
+                        {
+                            "url": "https://rt.data.gov.hk/v1/transport/citybus-nwfb/eta/ctb/001845/E23A",
+                            "dir": "I"
                         }
                     ]
                 }
@@ -66,7 +74,6 @@ const routeInfoJson = `
         }
     ]
 }
-
 `;
 
 
@@ -172,3 +179,20 @@ function renderETATables() {
 }
 
 
+// Popup for "Install to Home Screen"
+// Detects if device is on iOS 
+const isIos = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test( userAgent );
+    }
+    // Detects if device is in standalone mode
+    const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+
+    // Checks if should display install popup notification:
+    if (isIos() && !isInStandaloneMode()) {
+        document.getElementById("popup").hidden = false;
+    }
+
+function closePopup() {
+    document.getElementById("popup").hidden = true;
+}
