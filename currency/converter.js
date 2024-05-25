@@ -2,10 +2,7 @@ amount = document.getElementById("amount")
 rate = document.getElementById("rate")
 result = document.getElementById("result")
 
-rate.value = document.cookie
-  .split("; ")
-  .find((row) => row.startsWith("rate="))
-  ?.split("=")[1];
+rate.value = localStorage.getItem("rate")
 
 amount.addEventListener("input", function() {
     var resultValue = convert(amount.value, rate.value);
@@ -13,7 +10,7 @@ amount.addEventListener("input", function() {
 });
 
 rate.addEventListener("input", function() {
-    document.cookie = "rate=" + rate.value
+    localStorage.setItem("rate", rate.value)
     var resultValue = convert(amount.value, rate.value);
     result.value = resultValue.toFixed(2);
 });
