@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>TV Channels</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <div id="nav">
+        <ul class="top">
+                <li id="top_title"><a>TV Channels</a></li>
+        </ul>
+        <div id="select_location">
+    
+            <a href="https://www.rthk.hk/feeds/dtt/rthktv31_https.m3u8" target="iframe_live" onclick="openFullscreen();">RTHK 31</a>
+    
+            <a href="https://www.rthk.hk/feeds/dtt/rthktv32_https.m3u8" target="iframe_live" onclick="openFullscreen();">RTHK 32</a>
+
+            <a href="http://media.hkopentv.com/m3u8/archive/channel2.m3u8" target="iframe_live" onclick="openFullscreen();">Hong Kong Open TV - 77</a>
+
+            <a href="99.html" target="iframe_live" onclick="openFullscreen();">ViuTV - 99</a>
+
+            <a href="331.html" target="iframe_live" onclick="openFullscreen();">Now Direct - 331</a>
+
+            <a href="332.html" target="iframe_live" onclick="openFullscreen();">Now News - 332</a>
+        </div>
+    </div>
+    <div id="iframe_container">
+        <iframe id="hls_iframe" name="iframe_live"></iframe>
+        <button id="fs_btn" onclick="openFullscreen();">Fullscreen</a>
+    </div>
+
+    <script>
+        var elem = document.getElementById("hls_iframe");
+        function openFullscreen() {
+            if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { /* Firefox */
+            elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE/Edge */
+            elem.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
